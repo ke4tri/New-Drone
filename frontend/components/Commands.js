@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import socket from '../socket';
+import styled from "styled-components";
+import socket from "../socket";
 
 const CommandGrid = styled.div`
   display: grid;
@@ -10,7 +10,7 @@ const CommandGrid = styled.div`
   button {
     text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.05);
     border: 0;
-    background: #fe2c70;
+    background: #4e5250;
     border: 4px solid transparent;
     color: white;
     font-size: 1rem;
@@ -20,25 +20,25 @@ const CommandGrid = styled.div`
     }
     &:focus {
       outline: 0;
-      border-color: #ffc600;
+      border-color: black;
     }
     &.takeoff {
-      background: #41c7ff;
+      background: #4e5250;
     }
     &.land {
-      background: #00ff00;
+      background: #4e5250;
     }
     &.emergency {
-      background: orange;
+      background: red;
       text-transform: uppercase;
       color: black;
     }
     &.rotate {
-      background: #00fff9;
+      background: #4e5250;
       color: black;
     }
     &.height {
-      background: #fff;
+      background: #4e5250;
       color: black;
     }
     span.symbol {
@@ -57,7 +57,7 @@ const CommandGrid = styled.div`
   }
   h2 {
     grid-column: 1 / -1;
-    background: #ffc600;
+    background: #4e5250;
     margin: 0;
     font-size: 1rem;
     text-align: center;
@@ -69,33 +69,33 @@ const CommandGrid = styled.div`
 function sendCommand(command) {
   return function() {
     console.log(`Sending the command ${command}`);
-    socket.emit('command', command);
+    socket.emit("command", command);
   };
 }
 
 const amount = 100;
 const Commands = () => (
   <CommandGrid>
-    <button className="rotate" onClick={sendCommand('ccw 90')}>
+    <button className="rotate" onClick={sendCommand("ccw 90")}>
       <span className="symbol">⟲</span> 90°
     </button>
     <button onClick={sendCommand(`forward ${amount}`)}>
       <span className="symbol">↑</span> forward {amount}cm
     </button>
-    <button className="rotate" onClick={sendCommand('cw 15')}>
+    <button className="rotate" onClick={sendCommand("cw 15")}>
       <span className="symbol">⟳</span> 15°
     </button>
     <button onClick={sendCommand(`left ${amount}`)}>
       <span className="symbol">←</span> left {amount}cm
     </button>
     <div className="center">
-      <button className="takeoff" onClick={sendCommand('takeoff')}>
+      <button className="takeoff" onClick={sendCommand("takeoff")}>
         Take Off
       </button>
-      <button className="land" onClick={sendCommand('land')}>
+      <button className="land" onClick={sendCommand("land")}>
         Land
       </button>
-      <button className="emergency" onClick={sendCommand('emergency')}>
+      <button className="emergency" onClick={sendCommand("emergency")}>
         !! emergency !!
       </button>
     </div>
@@ -113,12 +113,12 @@ const Commands = () => (
       <span className="symbol">⤓</span> {amount}cm
     </button>
     <h2>Fancy Pants</h2>
-    <button onClick={sendCommand('flip l')}>Flip Left</button>
-    <button onClick={sendCommand('flip r')}>Flip Right</button>
-    <button onClick={sendCommand('flip b')}>Flip Back</button>
-    <button onClick={sendCommand('flip f')}>Flip Forward</button>
-    <button onClick={sendCommand('go 25 25 25 25')}>Go 25 25 25 25</button>
-    <button onClick={sendCommand('curve 100 100 100 150 250 350 50')}>
+    <button onClick={sendCommand("flip l")}>Flip Left</button>
+    <button onClick={sendCommand("flip r")}>Flip Right</button>
+    <button onClick={sendCommand("flip b")}>Flip Back</button>
+    <button onClick={sendCommand("flip f")}>Flip Forward</button>
+    <button onClick={sendCommand("go 25 25 25 25")}>Go 25 25 25 25</button>
+    <button onClick={sendCommand("curve 100 100 100 150 250 350 50")}>
       Curve!
     </button>
   </CommandGrid>

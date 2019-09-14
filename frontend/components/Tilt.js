@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const TiltWrap = styled.div`
   perspective: 500px;
@@ -10,11 +10,11 @@ const TiltWrap = styled.div`
   grid-gap: 5px;
   grid-template-columns: repeat(4, 1fr);
   span {
-    background: #fe2c70;
+    background: gray;
   }
 `;
 const TiltStyles = styled.div`
-  background-image: url('/static/drone.png');
+  background-image: url("/static/drone.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -42,7 +42,7 @@ Tilt.defaultProps = {
   pitch: 0,
   roll: 0,
   yaw: 0,
-  height: 0,
+  height: 0
 };
 
 export default Tilt;
