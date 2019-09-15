@@ -1,6 +1,7 @@
 import DroneState from '../components/DroneState';
 import Commands from '../components/Commands';
-
+import CommandsReact from '../components/Commands/CommandsReact';
+//import Stream from '../components/Stream';
 import styled, { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
@@ -30,9 +31,11 @@ const PageStyles = styled.div`
 
 const IndexPage = () => (
   <PageStyles>
-    <h2>JavaScript Drone</h2>
+    <h2>Drone</h2>
     <GlobalStyle />
-    <Commands />
+    {/* <Stream /> */}
+    {/* <Commands /> */}
+    <CommandsReact />
     <DroneState />
   </PageStyles>
 );
