@@ -66,6 +66,13 @@ const CommandGrid = styled.div`
   }
 `;
 
+
+function cmToFeet (cm){
+  const newMath = Math.round(cm);
+  return newMath.toString();
+}
+
+
 function sendCommand(command) {
   return function() {
     console.log(`Sending the command ${command}`);
@@ -73,44 +80,48 @@ function sendCommand(command) {
   };
 }
 
-const amount = 100;
+
+const generalAmount = 100;
+const forwardAmount = 200;
+const sideAmount = 20;
 const Commands = () => (
+
   <CommandGrid>
     <button className="rotate" onClick={sendCommand("ccw 90")}>
       <span className="symbol">⟲</span> 90°
     </button>
-    <button onClick={sendCommand(`forward ${amount}`)}>
-      <span className="symbol">↑</span> forward {amount}cm
+    <button onClick={sendCommand(`forward ${forwardAmount}`)}>
+      <span className="symbol">↑</span> FORWARD 7 ft
     </button>
-    <button className="rotate" onClick={sendCommand("cw 15")}>
-      <span className="symbol">⟳</span> 15°
+    <button className="rotate" onClick={sendCommand("cw 180")}>
+      <span className="symbol">⟳</span> 180°
     </button>
-    <button onClick={sendCommand(`left ${amount}`)}>
-      <span className="symbol">←</span> left {amount}cm
+    <button onClick={sendCommand(`left ${sideAmount}`)}>
+      <span className="symbol">←</span> LEFT 1 ft
     </button>
     <div className="center">
       <button className="takeoff" onClick={sendCommand("takeoff")}>
-        Take Off
+        TAKE OFF
       </button>
       <button className="land" onClick={sendCommand("land")}>
-        Land
+        LAND
       </button>
       <button className="emergency" onClick={sendCommand("emergency")}>
-        !! emergency !!
+        !! EMERGENCY !!
       </button>
     </div>
-    <button onClick={sendCommand(`right ${amount}`)}>
+    <button onClick={sendCommand(`right ${sideAmount}`)}>
       <span className="symbol">→</span>
-      right {amount}cm
+      RIGHT 1 ft
     </button>
-    <button className="height" onClick={sendCommand(`up ${amount}`)}>
-      <span className="symbol">⤒</span> {amount}cm
+    <button className="height" onClick={sendCommand(`up ${generalAmount}`)}>
+      <span className="symbol">⤒</span> 3 ft
     </button>
-    <button onClick={sendCommand(`back ${amount}`)}>
-      <span className="symbol">↓</span> back {amount}cm
+    <button onClick={sendCommand(`back ${generalAmount}`)}>
+      <span className="symbol">↓</span> BACK 3 ft
     </button>
-    <button className="height" onClick={sendCommand(`down ${amount}`)}>
-      <span className="symbol">⤓</span> {amount}cm
+    <button className="height" onClick={sendCommand(`down ${generalAmount}`)}>
+      <span className="symbol">⤓</span> 3 ft
     </button>
     <h2>Fancy Pants</h2>
     <button onClick={sendCommand("flip l")}>Flip Left</button>
